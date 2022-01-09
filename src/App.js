@@ -12,10 +12,7 @@ class App extends Component{
     pageTitle: 'ReactComponents'
   }
 
-  clickHandler = () => {
-    console.log('Clicked')
-    const oldTitle = this.state.pageTitle
-    const newTitle = oldTitle + ' - Changed'
+  clickHandler = (newTitle) => {
     this.setState({
       pageTitle: newTitle
     })
@@ -28,9 +25,21 @@ class App extends Component{
       <div>
         <h1>{this.state.pageTitle}</h1>
         <button onClick={this.clickHandler}>Change title</button>
-        <Car name={this.state.cars[0].name} year={this.state.cars[0].year}/>
-        <Car name={this.state.cars[1].name} year={this.state.cars[1].year}/>
-        <Car name={this.state.cars[2].name} year={this.state.cars[2].year}>
+        <Car
+          name={this.state.cars[0].name}
+          year={this.state.cars[0].year}
+          onChangeTitleHandler={this.clickHandler.bind(this, this.state.cars[0].name)}
+        />
+        <Car
+          name={this.state.cars[1].name}
+          year={this.state.cars[1].year}
+          onChangeTitleHandler={() => this.clickHandler(this.state.cars[1].name)}
+        />
+        <Car
+          name={this.state.cars[2].name}
+          year={this.state.cars[2].year}
+          onChangeTitleHandler={() => this.clickHandler(this.state.cars[2].name)}
+        >
           <p style={{color: 'red'}}>Color</p>
         </Car>
     </div>
