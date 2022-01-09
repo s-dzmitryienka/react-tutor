@@ -8,5 +8,6 @@ export default (props) => (
     <div style={styleRootComponent}>
         <h3>This is car {props.name}</h3>
         <p>Year {props.year}</p>
+        {props.children}
     </div>
 )
