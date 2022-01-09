@@ -18,13 +18,18 @@ class App extends Component{
     })
 
   }
-
+  
+  changeInput = (event) => {
+    this.setState({
+      pageTitle: event.target.value
+    })
+  }
   render () {
     console.log('Render APP')
     return (
       <div>
         <h1>{this.state.pageTitle}</h1>
-        <button onClick={this.clickHandler}>Change title</button>
+        <input type="text" onChange={this.changeInput}/>
         <Car
           name={this.state.cars[0].name}
           year={this.state.cars[0].year}
