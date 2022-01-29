@@ -36,27 +36,10 @@ class App extends Component{
               key={index}
               name={car.name}
               year={car.year}
-              onChangeTitleHandler={() => this.clickHandler(car.name)}
+              onChangeTitleHandler={this.clickHandler.bind(this, car.name)}
             />
           )
         })}
-        {/* <Car
-          name={this.state.cars[0].name}
-          year={this.state.cars[0].year}
-          onChangeTitleHandler={this.clickHandler.bind(this, this.state.cars[0].name)}
-        />
-        <Car
-          name={this.state.cars[1].name}
-          year={this.state.cars[1].year}
-          onChangeTitleHandler={() => this.clickHandler(this.state.cars[1].name)}
-        />
-        <Car
-          name={this.state.cars[2].name}
-          year={this.state.cars[2].year}
-          onChangeTitleHandler={() => this.clickHandler(this.state.cars[2].name)}
-        >
-          <p style={{color: 'red'}}>Color</p>
-        </Car> */}
     </div>
     )
   }
